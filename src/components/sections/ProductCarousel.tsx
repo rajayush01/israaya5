@@ -1,10 +1,52 @@
-import { useRef } from 'react'
+import { useEffect, useRef, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { NIKHAAR_PRODUCTS, formatPrice } from '../../lib/products'
 import { Photo } from '../ui/Photo'
 
+const AUTO_SCROLL_SPEED = 0.4 // px per frame, tune to taste
+const RESUME_DELAY = 2500 // ms after user interaction before auto-scroll resumes
+
 export function ProductCarousel() {
   const trackRef = useRef<HTMLDivElement>(null)
+  const rafRef = useRef<number | null>(null)
+  const isPausedRef = useRef(false)
+  const resumeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const tick = useCallback(() => {
+    const el = trackRef.current
+    if (el && !isPausedRef.current) {
+      const maxScroll = el.scrollWidth - el.clientWidth
+      if (maxScroll > 0) {
+        // Loop seamlessly back to start once we hit the end
+        if (el.scrollLeft >= maxScroll - 1) {
+          el.scrollLeft = 0
+        } else {
+          el.scrollLeft += AUTO_SCROLL_SPEED
+        }
+      }
+    }
+    rafRef.current = requestAnimationFrame(tick)
+  }, [])
+
+  useEffect(() => {
+    rafRef.current = requestAnimationFrame(tick)
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current)
+      if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current)
+    }
+  }, [tick])
+
+  const pause = useCallback(() => {
+    isPausedRef.current = true
+    if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current)
+  }, [])
+
+  const scheduleResume = useCallback(() => {
+    if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current)
+    resumeTimeoutRef.current = setTimeout(() => {
+      isPausedRef.current = false
+    }, RESUME_DELAY)
+  }, [])
 
   return (
     <section className="py-20 md:py-32">
@@ -19,6 +61,16 @@ export function ProductCarousel() {
         ref={trackRef}
         className="mt-10 flex gap-6 overflow-x-auto px-6 pb-4 no-scrollbar md:px-10"
         style={{ scrollSnapType: 'x mandatory' }}
+        onMouseEnter={pause}
+        onMouseLeave={scheduleResume}
+        onTouchStart={pause}
+        onTouchEnd={scheduleResume}
+        onWheel={() => {
+          pause()
+          scheduleResume()
+        }}
+        onPointerDown={pause}
+        onPointerUp={scheduleResume}
       >
         {NIKHAAR_PRODUCTS.map((p) => (
           <Link
