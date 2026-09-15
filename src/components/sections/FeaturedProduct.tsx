@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom'
 import type { Product } from '../../lib/products'
 import { formatPrice } from '../../lib/products'
-import { RevealImage } from '../ui/RevealImage'
-import { Photo } from '../ui/Photo'
 
 export function FeaturedProduct({ product }: { product: Product }) {
   return (
