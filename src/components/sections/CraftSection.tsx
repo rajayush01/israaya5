@@ -17,12 +17,12 @@ export function CraftSection() {
         </p>
 
         <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
-          <RevealImage className="md:col-span-2">
-            <Photo src={SITE_PHOTOS.craftPrimary} alt="Hand embroidery detail" aspect="aspect-[16/10]" />
-          </RevealImage>
-          <RevealImage delay={0.15}>
+          <img src={SITE_PHOTOS.craftPrimary} alt="Karigar at work" className="aspect-[3/4] w-full object-cover" />
+          <RevealImage>
             <Photo src={SITE_PHOTOS.craftSecondary} alt="Karigar at work" aspect="aspect-[3/4]" />
           </RevealImage>
+          <img src={SITE_PHOTOS.craftPrimary} alt="Karigar at work" className="aspect-[3/4] w-full object-cover" />
+
         </div>
       </div>
     </section>
