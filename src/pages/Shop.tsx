@@ -3,6 +3,8 @@ import { NIKHAAR_PRODUCTS } from '../lib/products'
 import { ProductCard } from '../components/ui/ProductCard'
 import { CategoryStrip } from '../components/sections/CategoryStrip'
 import { usePageTitle } from '../components/ui/PageTitle'
+import { Photo } from '../components/ui/Photo'
+import { SITE_PHOTOS } from '../lib/photos'
 
 const SORTS = [
   { label: 'Featured', value: 'featured' },
@@ -35,6 +37,10 @@ export function Shop() {
         <p className="text-[12px] tracking-[0.2em] uppercase text-charcoal/50">Nikhaar</p>
         <h1 className="mt-2 font-display text-5xl md:text-6xl">Shop</h1>
         <p className="mt-2 text-sm text-charcoal/50">{NIKHAAR_PRODUCTS.length} pieces</p>
+      </div>
+
+      <div className="px-6 pb-10 md:px-10">
+        <Photo src={SITE_PHOTOS.shopBanner} alt="Nikhaar — the collection" aspect="aspect-[4/5] md:aspect-[21/9]" />
       </div>
 
       <CategoryStrip active={category} onChange={setCategory} sticky />

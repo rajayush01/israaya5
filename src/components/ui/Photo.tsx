@@ -5,6 +5,7 @@ interface PhotoProps {
   alt: string
   className?: string
   aspect?: string
+  priority?: boolean
 }
 
 /**
@@ -14,7 +15,7 @@ interface PhotoProps {
  * Falls back to a soft tinted placeholder if the image URL ever fails
  * to load, instead of leaving a blank/broken box on the page.
  */
-export function Photo({ src, alt, className = '', aspect = 'aspect-[3/4]' }: PhotoProps) {
+export function Photo({ src, alt, className = '', aspect = 'aspect-[3/4]', priority = false }: PhotoProps) {
   const [failed, setFailed] = useState(false)
 
   return (
@@ -23,7 +24,8 @@ export function Photo({ src, alt, className = '', aspect = 'aspect-[3/4]' }: Pho
         <img
           src={src}
           alt={alt}
-          loading="lazy"
+          loading={priority ? 'eager' : 'lazy'}
+          decoding="async"
           className="h-full w-full object-cover"
           onError={() => setFailed(true)}
         />

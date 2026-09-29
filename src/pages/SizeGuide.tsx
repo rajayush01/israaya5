@@ -1,4 +1,6 @@
 import { usePageTitle } from '../components/ui/PageTitle'
+import { Photo } from '../components/ui/Photo'
+import { SITE_PHOTOS } from '../lib/photos'
 
 const SIZES = [
   { size: 'XS', bust: '32"', waist: '25"', hip: '35"' },
@@ -14,12 +16,15 @@ export function SizeGuide() {
   usePageTitle('Size Guide')
   return (
     <div className="pt-24">
-      <div className="px-6 py-10 md:px-10">
-        <h1 className="font-display text-5xl md:text-6xl">Size Guide</h1>
-        <p className="mt-4 max-w-md text-sm leading-relaxed text-charcoal/70">
-          Every Israaya piece is made to order, from XS to 7XL. If your measurements fall between sizes,
-          or you'd like a fully custom fit, we recommend custom measurements.
-        </p>
+      <div className="grid grid-cols-1 items-center gap-10 px-6 py-10 md:grid-cols-[1.4fr_0.6fr] md:gap-16 md:px-10">
+        <div>
+          <h1 className="font-display text-5xl md:text-6xl">Size Guide</h1>
+          <p className="mt-4 max-w-md text-sm leading-relaxed text-charcoal/70">
+            Every Israaya piece is made to order, from XS to 7XL. If your measurements fall between sizes,
+            or you'd like a fully custom fit, we recommend custom measurements.
+          </p>
+        </div>
+        <Photo src={SITE_PHOTOS.sizeGuide} alt="Israaya — made to your measurements" aspect="aspect-[4/5]" />
       </div>
 
       <div className="overflow-x-auto px-6 py-10 md:px-10">
