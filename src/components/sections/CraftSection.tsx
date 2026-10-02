@@ -17,7 +17,7 @@ export function CraftSection() {
         </p>
 
         <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
-          {SITE_PHOTOS.craft.map((src, i) => (
+          {SITE_PHOTOS.craft.map((src) => (
               <Photo src={src} alt="Karigar at work" aspect="aspect-[3/4]" />
           ))}
         </div>
