@@ -1,14 +1,11 @@
 import { Photo } from '../ui/Photo'
-import { RevealImage } from '../ui/RevealImage'
 import { SITE_PHOTOS } from '../../lib/photos'
 
 export function Customization() {
   return (
     <section className="bg-bone px-6 py-20 md:px-10 md:py-32">
       <div className="mx-auto grid max-w-[1600px] grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
-        <RevealImage>
-          <Photo src={SITE_PHOTOS.customization} alt="Made for you — bespoke Israaya" aspect="aspect-[4/5]" />
-        </RevealImage>
+          <Photo src={SITE_PHOTOS.customization} alt="Made for you — bespoke Israaya" aspect="aspect-[4/3]" />
         <div className="md:max-w-xl">
           <h2 className="font-display text-5xl leading-[0.95] md:text-6xl">Made for you.</h2>
           <p className="mt-6 text-sm leading-relaxed text-charcoal/70">

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { RevealImage } from '../ui/RevealImage'
+// import { RevealImage } from '../ui/RevealImage'
 import { RevealText } from '../ui/RevealText'
 import { Photo } from '../ui/Photo'
 import { SITE_PHOTOS } from '../../lib/photos'
@@ -7,9 +7,9 @@ import { SITE_PHOTOS } from '../../lib/photos'
 export function CollectionStory() {
   return (
     <section className="grid grid-cols-1 items-center gap-10 px-6 py-20 md:grid-cols-2 md:gap-16 md:px-10 md:py-32">
-      <RevealImage>
-        <Photo src={SITE_PHOTOS.collectionStory} alt="Nikhaar — garden study" aspect="aspect-[4/5]" />
-      </RevealImage>
+      {/* <RevealImage> */}
+      <Photo src={SITE_PHOTOS.collectionStory} alt="Nikhaar — garden study" aspect="aspect-[4/3]" />
+      {/* </RevealImage> */}
 
       <div className="max-w-md">
         <p className="text-[12px] tracking-[0.2em] uppercase text-charcoal/50">Nikhaar</p>

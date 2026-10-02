@@ -15,7 +15,7 @@ export function ProductCard({ product, wide = false }: { product: Product; wide?
       onMouseLeave={() => setHovered(false)}
       data-cursor="view"
     >
-      <div className={`relative overflow-hidden ${wide ? 'aspect-[16/10]' : 'aspect-[3/4]'}`}>
+      <div className={`relative overflow-hidden ${wide ? 'aspect-[16/10]' : 'aspect-[4/3]'}`}>
         <div
           className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-[1.035]"
           style={{ opacity: hovered ? 0 : 1, transition: 'opacity 0.4s ease' }}

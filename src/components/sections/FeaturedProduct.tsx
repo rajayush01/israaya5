@@ -2,15 +2,13 @@ import { Link } from 'react-router-dom'
 import type { Product } from '../../lib/products'
 import { formatPrice } from '../../lib/products'
 import { Photo } from '../ui/Photo'
-import { RevealImage } from '../ui/RevealImage'
+// import { RevealImage } from '../ui/RevealImage'
 
 export function FeaturedProduct({ product }: { product: Product }) {
   return (
     <section className="px-6 py-20 md:px-10 md:py-32">
       <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-10 md:grid-cols-[1.4fr_1fr] md:gap-16">
-        <RevealImage>
-          <Photo src={product.images[0]} alt={`${product.name} — full garment`} aspect="aspect-[4/5]" />
-        </RevealImage>
+          <Photo src={product.images[0]} alt={`${product.name} — full garment`} aspect="aspect-[4/3]" />
 
         <div className="flex flex-col justify-center">
           <p className="text-[12px] tracking-[0.2em] uppercase text-charcoal/50">{product.collection}</p>

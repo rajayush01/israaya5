@@ -1,4 +1,4 @@
-import { RevealImage } from '../ui/RevealImage'
+// import { RevealImage } from '../ui/RevealImage'
 import { RevealText } from '../ui/RevealText'
 import { Photo } from '../ui/Photo'
 import { SITE_PHOTOS } from '../../lib/photos'
@@ -18,9 +18,7 @@ export function CraftSection() {
 
         <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
           {SITE_PHOTOS.craft.map((src, i) => (
-            <RevealImage key={src + i} delay={i * 0.12}>
               <Photo src={src} alt="Karigar at work" aspect="aspect-[3/4]" />
-            </RevealImage>
           ))}
         </div>
       </div>
