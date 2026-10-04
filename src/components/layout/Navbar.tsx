@@ -38,7 +38,7 @@ export function Navbar({ onMenuOpen, solid = false }: { onMenuOpen: () => void; 
       }`}
     >
       <div
-        className={`mx-auto grid max-w-[1600px] grid-cols-[auto_1fr_auto] items-center gap-4 px-6 md:px-10${textColor}`}
+        className={`mx-auto grid max-w-[1600px] grid-cols-[auto_1fr_auto] items-center gap-4 px-6 md:px-10 ${textColor}`}
       >
         {/* Logo — fixed height, auto width, no more dominating the header */}
         <Link to="/" className="flex h-8 shrink-0 items-center md:h-20">

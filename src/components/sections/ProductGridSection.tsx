@@ -7,7 +7,7 @@ export function ProductGridSection() {
 
   return (
     <section className="px-6 py-24 md:px-10 md:py-32">
-      <div className="mx-auto max-w-[1600px]">
+      <div className="mx-auto max-w-[1200px]">
         <RevealText
           lines={['Nikhaar', 'The Collection']}
           as="h2"
@@ -22,7 +22,10 @@ export function ProductGridSection() {
         </div>
 
         <div className="mt-16">
+            <div className="md:mx-auto md:max-w-[1200px] ">
+
           <ProductCard product={products[2]} wide />
+          </div>
         </div>
 
         <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-3">

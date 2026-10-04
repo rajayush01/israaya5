@@ -26,7 +26,7 @@ export const PHOTOS: string[] = Array.from({ length: Math.max(LINKS.length, 48) 
  *               placement so nothing repeats on the same page.
  */
 export const SITE_PHOTOS = {
-  hero: PHOTOS[24],
+  hero: PHOTOS[20],
   collectionStory: PHOTOS[25],
   collectionsHero: PHOTOS[26],
   craft: [PHOTOS[27], PHOTOS[28], PHOTOS[29]],
