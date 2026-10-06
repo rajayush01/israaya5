@@ -4,14 +4,14 @@ import { Navbar } from './Navbar'
 import { MobileMenu } from './MobileMenu'
 import { Footer } from './Footer'
 import { CartDrawer } from './CartDrawer'
-import { CustomCursor } from './CustomCursor'
+// import { CustomCursor } from './CustomCursor'
 
 export function Layout() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
     <div className="cursor-none-desktop min-h-screen">
-      <CustomCursor />
+      {/* <CustomCursor /> */}
       <Navbar onMenuOpen={() => setMenuOpen(true)} />
       <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
       <CartDrawer />

@@ -42,11 +42,11 @@ body {
   color: var(--color-ivory);
 }
 
-@media (hover: hover) and (pointer: fine) {
+/* @media (hover: hover) and (pointer: fine) {
   .cursor-none-desktop {
     cursor: none;
   }
-}
+} */
 
 @media (prefers-reduced-motion: reduce) {
   *,
